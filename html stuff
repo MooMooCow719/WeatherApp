@@ -7,6 +7,10 @@
         <meta name="Weather App" content="A little weather website project">
         <link rel="icon" href="favicon.ico">
     </head>
+        <div>
+            <h1>Weather</h1>
+            
+        </div>
     <body>
 
     </body>
