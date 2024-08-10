@@ -1,10 +1,12 @@
 <!DOCTYPE HTML>
- <html>
+<html lang="en">
     <head>
-        <title>Weather</title>
-        <link rel="stylesheet" href="weatherstyle.css">
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="Weather App" content="A little weather website project">
+        <title>Weather</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+        <link rel="stylesheet" href="weatherstyle.css">     
         <link rel="icon" href="assets/favicon.png" type="image/png">
     </head>
         <div class="headerbar">
@@ -17,4 +19,4 @@
     <body>
 
     </body>
- </html>
+</html>
