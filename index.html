@@ -16,14 +16,14 @@
                 <h1>Weather</h1>
             </div>
             <div id="search-bar">
-                <div id="search-bar">
-                    <form action="#" method="get">
-                        <input type="text" id="search-input" placeholder="Enter a city...">
-                        <button type="submit" id="search-button">
-                            <i class="fas fa-search"></i> 
-                        </button>
-                    </form>
-                </div>
+                <form action="#" method="get">
+                    <label for="search-input" class="visually-hidden">City Search</label>
+                    <input type="text" id="search-input" placeholder="Enter a city...">
+                    <button type="submit" id="search-button">
+                        <i class="fas fa-search" aria-hidden="true"></i> 
+                        <span class="visually-hidden">Search</span>
+                    </button>
+                </form>
             </div>
             <div id="gearwheel">
                 <img src="assets/gearwheel.png" alt="Settings">
@@ -31,13 +31,17 @@
         </div>
         <div class="content">
             <div id="main-info">
-
+                <h1><span id="city">Coolville</span></h1>
+                <h2><span id="temp">-</span></h2>
+                <h1><span id="condition">Overcast</span></h1>
             </div>
             <div id="water">
-
+                <h2>Humidity: <span id="humidity">-</span>%</h2>
+                <h2>Chance of rain: <span id="rainchk">-</span>%</h2>
             </div>
             <div id="wind">
-
+                <h2>Wind: <span id="wind">-</span></h2>
+                <h2>Air quality: <span id="aqi">-</span></h2>
             </div>
         </div>
     </body>
