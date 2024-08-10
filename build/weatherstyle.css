@@ -1,3 +1,18 @@
+html {
+    font-size: 16px;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
 .header-bar{
-    border: 2px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4A90E2;
+    padding: 10px 20px;
+    color: white;
+    position: sticky;
+    top: 0;
 }
