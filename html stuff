@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+ <html>
+    <head>
+        <title>Weather</title>
+        <link rel="stylesheet" href="weatherstyle.css">
+        <meta charset="UTF-8">
+        <meta name="Weather App" content="A little weather website project">
+        <link rel="icon" href="favicon.ico">
+    </head>
+    <body>
+
+    </body>
+ </html>
