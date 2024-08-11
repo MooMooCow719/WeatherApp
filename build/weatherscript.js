@@ -152,7 +152,7 @@ function updateBackground(condition, hours) {
     }
 
     document.body.style.backgroundImage = backgroundImage;
-    document.body.style.backgroundSize = 'contain';
+    document.body.style.backgroundSize = 'fill';
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = 'no-repeat';
 }
