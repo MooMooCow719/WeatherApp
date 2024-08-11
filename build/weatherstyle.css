@@ -48,7 +48,6 @@ h2{
 .content-box{
   border: 2px solid #9290C3;
   background-color: rgba(0, 0, 0, 0);
-  backdrop-filter: blur(5px);
   color: #070F2B;
 }
 
@@ -138,7 +137,6 @@ input:checked + .slider:before {
 [mode="light"] .content-box{
   border: 2px solid #FFD1E3;
   background-color: rgba(209, 213, 202, 0.218);
-  backdrop-filter: blur(5px);
   color:#5a73b8;
 }
 
