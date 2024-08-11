@@ -111,7 +111,7 @@ function updateWeatherIcon(data) {
     let icon;
     if (hours >= 18 || hours < 6) {
         if (condition.includes('clear')) {
-            icon = 'moon.png';
+            icon = 'moon.jpeg';
         } else if (condition.includes('clouds')) {
             icon = 'night-cloud.png';
         } else if (condition.includes('rain')) {
