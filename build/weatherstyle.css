@@ -6,6 +6,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     color:#f0fcff;
     margin: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 h1 {
