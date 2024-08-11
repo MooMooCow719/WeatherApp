@@ -50,9 +50,10 @@ function updateUI(data) {
 
 function calculateLocalTime(timezoneOffset) {
     const utcDate = new Date();
-    const localDate = new Date(utcDate.getTime() + (timezoneOffset * 1000));
-    return localDate.toLocaleTimeString();
+    const localDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000 + timezoneOffset * 1000);
+    return localDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
 }
+
 
 function updateWeatherIcon(data) {
     const weatherIcon = document.getElementById('weather-icon');
