@@ -5,23 +5,37 @@ html {
 body {
     font-family: 'Montserrat', sans-serif;
     color:#f8f9f1;
+    margin: 0;
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
 }
 
 h2{
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
-.header-bar{
+.header-bar {
     background-color: #469dec;
     width: 100vw;
     height: 10vh;
-    margin: 0px;
-    padding: 2vw 3vw;
-    border: 2px solid silver;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem; 
+    box-sizing: border-box; 
+    border-bottom: 2px solid silver;
+}
+
+#title {
+    flex-grow: 1; 
+}
+
+#search-bar {
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
 }
 
 #gearwheel{
