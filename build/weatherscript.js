@@ -80,3 +80,9 @@ function updateWeatherIcon(data) {
 
     weatherIcon.src = `assets/${icon}`;
 }
+
+document.getElementById('mode-toggle').addEventListener('change', function() {
+    if (this.checked) {
+        document.documentElement.setAttribute('mode', 'light');
+    }
+});
