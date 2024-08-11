@@ -36,7 +36,8 @@ h2{
     flex-grow: 3;
     display: flex;
     justify-content: right;
-    margin: 0vw 5vw 0vw 30vw;
+    padding: 0 2rem;
+    margin: 0vw 5vw 0vw 0vw;
     transform: scale(1.5);
 }
 
