@@ -189,13 +189,13 @@ function updateBackground(condition, hours) {
     }
 
     if (condition.includes('clear')) {
-        backgroundImage = isDay ? 'url(assets/sun-bg.jpeg)' : 'url(assets/istockphoto-1335422932-612x612.jpeg)';
+        backgroundImage = isDay ? 'url(assets/sun-bg.jpeg)' : 'url(assets/night-bg.png)';
     } else if (condition.includes('clouds')) {
         backgroundImage = isDay ? 'url(assets/day-cloud-bg.jpg)' : 'url(assets/night-cloud-bg.jpeg)';
     } else if (condition.includes('rain')) {
         backgroundImage = isDay ? 'url(assets/day-rain-bg.jpg)' : 'url(assets/night-rain-bg.jpeg)';
     } else {
-        backgroundImage = isDay ? 'url(assets/sun-bg.jpeg)' : 'url(assets/istockphoto-1335422932-612x612.jpeg)';
+        backgroundImage = isDay ? 'url(assets/sun-bg.jpeg)' : 'url(assets/night-bg.png)';
     }
 
     document.body.style.backgroundImage = backgroundImage;
