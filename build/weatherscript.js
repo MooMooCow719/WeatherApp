@@ -30,8 +30,9 @@ function updateUI(data) {
     document.getElementById('temp').textContent = `${Math.round(data.main.temp)}°C`;
 
     document.getElementById('city').textContent = data.name;
-
-    document.getElementById('condition').textContent = data.weather[0].description;
+    const condition = data.weather[0].main.toLowerCase();
+    //document.getElementById('condition').textContent = data.weather[0].description;
+    document.getElementById('condition').textContent = condition;
 
     document.getElementById('humidity').textContent = data.main.humidity;
 
@@ -46,7 +47,8 @@ function updateUI(data) {
     document.getElementById('local-time').textContent = localTime;
 
     updateWeatherIcon(data);
-    updateBackground(data.weather[0].main.toLowerCase(), new Date().getHours());
+    //updateBackground(data.weather[0].main.toLowerCase(), new Date().getHours());
+    updateBackground(condition, new Date().getHours());
 }
 
 function calculateLocalTime(timezoneOffset) {
@@ -110,6 +112,11 @@ const backgroundImages = {
 function updateBackground(condition, hours) {
     let backgroundImage;
     const isDay = hours >= 6 && hours < 18;
+
+    if (typeof condition !== 'string') {
+        console.error('Condition is not a string:', condition);
+        return;
+    }
 
     if (condition.includes('clear')) {
         backgroundImage = isDay ? backgroundImages.clear.day : backgroundImages.clear.night;
