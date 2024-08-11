@@ -1,5 +1,6 @@
 document.getElementById('search-bar').addEventListener('submit', function(event) {
     event.preventDefault(); 
+    console.log('Form submitted');
     const cityName = document.getElementById('search-input').value.trim();
     if (cityName) {
         getWeather(cityName); 
