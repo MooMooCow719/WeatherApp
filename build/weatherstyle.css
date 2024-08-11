@@ -36,7 +36,7 @@ h2{
     flex-grow: 3;
     display: flex;
     justify-content: right;
-    margin: 0vw 5vw 10vw 0vw;
+    margin: 0vw 5vw 0vw 10vw;
     transform: scale(1.5);
 }
 
