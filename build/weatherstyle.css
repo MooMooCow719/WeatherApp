@@ -15,7 +15,7 @@ h1 {
 }
 
 .header-bar{
-    display: flex;
+    /*display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #4A90E2;
@@ -24,7 +24,14 @@ h1 {
     position: sticky;
     top: 0;
     width: 100vw;
-    height: 1px;
+    height: 1px;*/
+    background-color: black;
+    color:silver;
+    font-family: 'Open Sans', sans-serif;
+    width: 270px;
+    margin: 15px auto;
+    padding: 2px 7px;
+    border: 1.5px solid silver;
 }
 
 #gearwheel{
