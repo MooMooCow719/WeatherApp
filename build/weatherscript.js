@@ -90,3 +90,39 @@ document.getElementById('mode-toggle').addEventListener('change', function() {
         document.documentElement.setAttribute('mode', 'light');
     }
 });
+
+const backgroundImages = {
+    'clear': {
+        day: 'assets/sun-bg.jpeg',
+        night: 'assets/moon-bg.png'
+    },
+    'clouds': {
+        day: 'assets/day-cloud-bg.jpg',
+        night: 'assets/night-cloud-bg.jpeg'
+    },
+    'rain': {
+        day: 'assets/day-rain-bg.jpg',
+        night: 'assets/night-rain-bg.jpeg'
+    },
+};
+
+function updateBackground(condition, hours) {
+    let backgroundImage;
+    const isDay = hours >= 6 && hours < 18;
+
+    if (condition.includes('clear')) {
+        backgroundImage = isDay ? backgroundImages.clear.day : backgroundImages.clear.night;
+    } else if (condition.includes('clouds')) {
+        backgroundImage = isDay ? backgroundImages.clouds.day : backgroundImages.clouds.night;
+    } else if (condition.includes('rain')) {
+        backgroundImage = isDay ? backgroundImages.rain.day : backgroundImages.rain.night;
+    } else {
+        backgroundImage = isDay ? backgroundImages.clear.day : backgroundImages.clear.night;
+    }
+
+    document.body.style.backgroundImage = `url('${backgroundImage}')`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundPosition = 'center';
+}
+
+window.onload = updateBackground;
