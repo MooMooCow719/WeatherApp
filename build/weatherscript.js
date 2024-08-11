@@ -5,7 +5,7 @@ document.getElementById('search-bar').addEventListener('submit', function(event)
     if (cityName) {
         getWeather(cityName); 
     } else {
-        alert('B-baka! You have to enter a real city!');
+        alert('B-baka! You have to enter something in the search field!');
     }
 });
 
@@ -22,7 +22,7 @@ async function getWeather(city) {
         updateUI(data);
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        alert('City not found or there was an error fetching the data.');
+        alert('Uhmm...gomenasai! P-please check that your city exists and retry...');
     }
 }
 
