@@ -42,10 +42,7 @@ function updateUI(data) {
     // pray to god this one works
     document.getElementById('vis').textContent = data.visibility; 
 
-    updateWeatherIcon(data);
-}
-
-const localTime = calculateLocalTime(data.timezone);
+    const localTime = calculateLocalTime(data.timezone);
     document.getElementById('local-time').textContent = localTime;
 
     updateWeatherIcon(data);
