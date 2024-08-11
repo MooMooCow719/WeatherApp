@@ -139,6 +139,6 @@ input:checked + .slider:before {
   border: 2px solid #FFD1E3;
   background-color: rgba(209, 213, 202, 0.218);
   backdrop-filter: blur(5px);
-  color:#7EA1FF;
+  color:#5a73b8;
 }
 
