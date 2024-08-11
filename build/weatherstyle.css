@@ -39,9 +39,9 @@ h2{
 #searchbar-div {
     flex-grow: 3;
     display: flex;
-    justify-content: right;
+    justify-content: left;
     padding: 0 2rem;
-    margin: 0vw 10vw 0vw 0vw;
+    margin: 0vw 5vw 0vw 0vw;
     transform: scale(1.5);
 }
 
