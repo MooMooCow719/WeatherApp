@@ -111,7 +111,7 @@ function updateWeatherIcon(data) {
     let icon;
     if (hours >= 18 || hours < 6) {
         if (condition.includes('clear')) {
-            icon = 'moon.jpeg';
+            icon = 'moon.png';
         } else if (condition.includes('clouds')) {
             icon = 'night-cloud.png';
         } else if (condition.includes('rain')) {
@@ -167,7 +167,7 @@ document.getElementById('mode-toggle').addEventListener('change', function() {
 const backgroundImages = {
     'clear': {
         day: 'assets/sun-bg.jpeg',
-        night: 'assets/moon-bg.png'
+        night: 'assets/moon-bg.jpeg'
     },
     'clouds': {
         day: 'assets/day-cloud-bg.jpg',
@@ -189,13 +189,13 @@ function updateBackground(condition, hours) {
     }
 
     if (condition.includes('clear')) {
-        backgroundImage = isDay ? 'url(assets/sun-bg.jpeg)' : 'url(assets/moon-bg.png)';
+        backgroundImage = isDay ? 'url(assets/sun-bg.jpeg)' : 'url(assets/moon-bg.jpeg)';
     } else if (condition.includes('clouds')) {
         backgroundImage = isDay ? 'url(assets/day-cloud-bg.jpg)' : 'url(assets/night-cloud-bg.jpeg)';
     } else if (condition.includes('rain')) {
         backgroundImage = isDay ? 'url(assets/day-rain-bg.jpg)' : 'url(assets/night-rain-bg.jpeg)';
     } else {
-        backgroundImage = isDay ? 'url(assets/sun-bg.jpeg)' : 'url(assets/moon-bg.png)';
+        backgroundImage = isDay ? 'url(assets/sun-bg.jpeg)' : 'url(assets/moon-bg.jpeg)';
     }
 
     document.body.style.backgroundImage = backgroundImage;
