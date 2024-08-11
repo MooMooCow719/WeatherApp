@@ -119,18 +119,18 @@ function updateBackground(condition, hours) {
     }
 
     if (condition.includes('clear')) {
-        backgroundImage = isDay ? backgroundImages.clear.day : backgroundImages.clear.night;
+        backgroundImage = isDay ? 'url(assets/sun-bg.jpeg)' : 'url(assets/moon-bg.png)';
     } else if (condition.includes('clouds')) {
-        backgroundImage = isDay ? backgroundImages.clouds.day : backgroundImages.clouds.night;
+        backgroundImage = isDay ? 'url(assets/day-cloud-bg.jpg)' : 'url(assets/night-cloud-bg.jpeg)';
     } else if (condition.includes('rain')) {
-        backgroundImage = isDay ? backgroundImages.rain.day : backgroundImages.rain.night;
+        backgroundImage = isDay ? 'url(assets/day-rain-bg.jpg)' : 'url(assets/night-rain-bg.jpeg)';
     } else {
-        backgroundImage = isDay ? backgroundImages.clear.day : backgroundImages.clear.night;
+        backgroundImage = isDay ? 'url(assets/sun-bg.jpeg)' : 'url(assets/moon-bg.png)';
     }
 
-    document.body.style.backgroundImage = `url('${backgroundImage}')`;
-    document.body.style.backgroundSize = '100vw 100vh';
-    document.body.style.backgroundPosition = 'center'; 
+    document.body.style.backgroundImage = backgroundImage;
+    document.body.style.backgroundSize = 'contain';
+    document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = 'no-repeat';
 }
 

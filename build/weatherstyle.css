@@ -6,9 +6,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     color:#f0fcff;
     margin: 0;
-    background-size: 100vw 100v;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h1 {
