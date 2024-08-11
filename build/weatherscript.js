@@ -45,6 +45,18 @@ function updateUI(data) {
     updateWeatherIcon(data);
 }
 
+const localTime = calculateLocalTime(data.timezone);
+    document.getElementById('local-time').textContent = localTime;
+
+    updateWeatherIcon(data);
+}
+
+function calculateLocalTime(timezoneOffset) {
+    const utcDate = new Date();
+    const localDate = new Date(utcDate.getTime() + (timezoneOffset * 1000));
+    return localDate.toLocaleTimeString();
+}
+
 function updateWeatherIcon(data) {
     const weatherIcon = document.getElementById('weather-icon');
     const condition = data.weather[0].main.toLowerCase();
