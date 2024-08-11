@@ -1,3 +1,18 @@
+let isCelsius = true;
+
+document.getElementById('units-toggle').addEventListener('change', function() {
+    isCelsius = !isCelsius;
+    const tempElement = document.getElementById('temp');
+    const currentTemp = parseFloat(tempElement.dataset.temp);
+
+    if (isCelsius) {
+        tempElement.textContent = `${Math.round(currentTemp)}°C`;
+    } else {
+        const tempFahrenheit = (currentTemp * 9/5) + 32;
+        tempElement.textContent = `${Math.round(tempFahrenheit)}°F`;
+    }
+});
+
 document.getElementById('search-bar').addEventListener('submit', function(event) {
     event.preventDefault(); 
     //console.log('Form submitted');
@@ -58,7 +73,15 @@ async function getWeather(city) {
 let windDir;
 
 function updateUI(data) {
-    document.getElementById('temp').textContent = `${Math.round(data.main.temp)}°C`;
+    const tempCelsius = Math.round(data.main.temp);
+    document.getElementById('temp').dataset.temp = tempCelsius;
+
+    if (isCelsius) {
+        document.getElementById('temp').textContent = `${tempCelsius}°C`;
+    } else {
+        const tempFahrenheit = (tempCelsius * 9/5) + 32;
+        document.getElementById('temp').textContent = `${Math.round(tempFahrenheit)}°F`;
+    }
 
     document.getElementById('city').textContent = data.name;
     const condition = data.weather[0].main.toLowerCase();
