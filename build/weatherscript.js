@@ -148,7 +148,7 @@ function updateWindIcon(windDir){
         icon = 'SW.png';
     } else if (windDir === "West"){
         icon = 'W.png';
-    } else {
+    } else if (windDir === "Northwest"){
         icon = 'NW.png';
     }
 
