@@ -1,8 +1,8 @@
 document.getElementById('search-bar').addEventListener('submit', function(event) {
-    event.preventDefault();
+    event.preventDefault(); 
     const cityName = document.getElementById('search-input').value.trim();
     if (cityName) {
-        getWeather(cityName);
+        getWeather(cityName); 
     } else {
         alert('B-baka! You have to enter a real city!');
     }
