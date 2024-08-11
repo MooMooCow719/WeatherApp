@@ -92,6 +92,7 @@ function updateUI(data) {
     document.getElementById('local-time').textContent = localTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
 
     updateWeatherIcon(data); 
+    updateWindIcon(windDir);
     updateBackground(condition, localTime.getHours()); 
 }
 
