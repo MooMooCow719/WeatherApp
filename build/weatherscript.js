@@ -26,7 +26,7 @@ async function getWeather(city) {
     }
 }
 
-function updateUI(data) {
+/*function updateUI(data) {
     document.getElementById('temp').textContent = `${Math.round(data.main.temp)}°C`;
 
     document.getElementById('city').textContent = data.name;
@@ -46,22 +46,45 @@ function updateUI(data) {
     const localTime = calculateLocalTime(data.timezone);
     document.getElementById('local-time').textContent = localTime;
 
+    const cityHours = new Date(localTime).getHours();
+    updateBackground(condition, cityHours);
     updateWeatherIcon(data);
+
+    //updateWeatherIcon(data);
     //updateBackground(data.weather[0].main.toLowerCase(), new Date().getHours());
-    updateBackground(condition, new Date().getHours());
+    //updateBackground(condition, new Date().getHours());
+}*/
+
+function updateUI(data) {
+    document.getElementById('temp').textContent = `${Math.round(data.main.temp)}°C`;
+
+    document.getElementById('city').textContent = data.name;
+    const condition = data.weather[0].main.toLowerCase();
+    document.getElementById('condition').textContent = condition;
+
+    document.getElementById('humidity').textContent = data.main.humidity;
+    document.getElementById('rainchk').textContent = data.clouds.all; 
+    document.getElementById('wind').textContent = `${data.wind.speed} m/s`;
+    document.getElementById('vis').textContent = data.visibility; 
+
+    const localTime = calculateLocalTime(data.timezone);
+    document.getElementById('local-time').textContent = localTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+
+    updateWeatherIcon(data); 
+    updateBackground(condition, localTime.getHours()); 
 }
+
 
 function calculateLocalTime(timezoneOffset) {
     const utcDate = new Date();
     const localDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000 + timezoneOffset * 1000);
-    return localDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+    return localDate;
 }
-
 
 function updateWeatherIcon(data) {
     const weatherIcon = document.getElementById('weather-icon');
     const condition = data.weather[0].main.toLowerCase();
-    const hours = new Date().getHours();
+    const hours = localTime.getHours();
 
     let icon;
     if (hours >= 18 || hours < 6) {
