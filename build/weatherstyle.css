@@ -4,24 +4,27 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    color:#f8f9f1;
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 
+h2{
+    font-size: 2.5rem;
+
 .header-bar{
-    background-color: skyblue;
-    color:whitesmoke;
-    width: 33vw;
-    height: auto;
-    margin: 15px auto;
-    padding: 2px 7px;
+    background-color: #469dec;
+    width: 100vw;
+    height: 10vh;
+    margin: 0px;
+    padding: 2vw 3vw;
     border: 2px solid silver;
 }
 
 #gearwheel{
-    width: 1px;
-    height: 1px;
+    width: 6vh;
+    height: 6vh;
 }
 
