@@ -23,9 +23,11 @@ h1 {
     color: white;
     position: sticky;
     top: 0;
+    width: 100vw;
+    height: 10vw;
 }
 
 #gearwheel{
-    width: 7vw;
+    width: 1vw;
     height: auto;
 }
