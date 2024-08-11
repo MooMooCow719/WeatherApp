@@ -84,7 +84,7 @@ function calculateLocalTime(timezoneOffset) {
 function updateWeatherIcon(data) {
     const weatherIcon = document.getElementById('weather-icon');
     const condition = data.weather[0].main.toLowerCase();
-    const hours = localTime.getHours();
+    const hours = calculateLocalTime(data.timezone).getHours();
 
     let icon;
     if (hours >= 18 || hours < 6) {
@@ -157,6 +157,7 @@ function updateBackground(condition, hours) {
     document.body.style.backgroundRepeat = 'no-repeat';
 }
 
-window.onload = function() {
-    updateBackground('clear', new Date().getHours()); 
+window.onload = function(data) {
+    //updateBackground('clear', new Date().getHours()); 
+    updateBackground('clear', calculateLocalTime(data.timezone).getHours()); 
 };
