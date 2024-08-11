@@ -129,8 +129,9 @@ function updateBackground(condition, hours) {
     }
 
     document.body.style.backgroundImage = `url('${backgroundImage}')`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundSize = '100vw 100vh';
+    document.body.style.backgroundPosition = 'center'; 
+    document.body.style.backgroundRepeat = 'no-repeat';
 }
 
 window.onload = function() {
