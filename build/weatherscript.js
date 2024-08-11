@@ -55,6 +55,8 @@ async function getWeather(city) {
     //updateBackground(condition, new Date().getHours());
 }*/
 
+let windDir;
+
 function updateUI(data) {
     document.getElementById('temp').textContent = `${Math.round(data.main.temp)}°C`;
 
@@ -65,7 +67,26 @@ function updateUI(data) {
     document.getElementById('humidity').textContent = data.main.humidity;
     document.getElementById('rainchk').textContent = data.clouds.all; 
     document.getElementById('wind').textContent = `${data.wind.speed} m/s`;
-    document.getElementById('vis').textContent = data.visibility; 
+
+    const windDeg = data.wind.deg;
+    if (windDeg >= 337.5 || windDeg <= 22.5){
+        windDir = 'North';
+    } else if (windDeg <= 67.5){
+        windDir = 'Northeast';
+    } else if (windDeg <= 112.5){
+        windDir = 'East';
+    } else if (windDeg <= 157.5){
+        windDir = "Southeast";
+    } else if (windDeg <= 202.5){
+        windDir = "South";
+    } else if (windDeg <= 247.5){
+        windDir = "Southwest";
+    } else if (windDeg <= 292.5){
+        windDir = "West";
+    } else if (windDeg < 337.5){
+        windDir = "Northwest";
+    }
+    document.getElementById('wind-dir').textContent = windDir; 
 
     const localTime = calculateLocalTime(data.timezone);
     document.getElementById('local-time').textContent = localTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
@@ -106,6 +127,31 @@ function updateWeatherIcon(data) {
     }
 
     weatherIcon.src = `assets/${icon}`;
+}
+
+function updateWindIcon(windDir){
+    const windIcon = document.getElementById('wind-dir-img');
+
+    let icon;
+    if(windDir === "North"){
+        icon = "N.png";
+    } else if (windDir === "Northeast"){
+        icon = 'NE.png';
+    } else if (windDir = "East"){
+        icon = 'E.png';
+    } else if (windDir === "Southeast"){
+        icon = 'SE.png';
+    } else if (windDir === "South"){
+        icon = 'S.png';
+    } else if (windDir === "Southwest"){
+        icon = 'SW.png';
+    } else if (windDir === "West"){
+        icon = 'W.png';
+    } else {
+        icon = 'NW.png';
+    }
+
+    windIcon.src = `assets/${icon}`;
 }
 
 document.getElementById('mode-toggle').addEventListener('change', function() {
