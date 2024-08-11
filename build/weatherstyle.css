@@ -4,6 +4,10 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(25deg, navy 0%, purple 50%, navy 100%);
+    filter: blur(4px);
+    height: 100vh;
+    margin: 0;
 }
 
 h1 {
