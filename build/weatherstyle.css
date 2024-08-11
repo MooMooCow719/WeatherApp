@@ -41,7 +41,7 @@ h2{
     display: flex;
     justify-content: right;
     padding: 0 2rem;
-    margin: 0vw 5vw 0vw 0vw;
+    margin: 0vw 5vw 5vw 0vw;
     transform: scale(1.5);
 }
 
