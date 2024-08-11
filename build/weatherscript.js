@@ -167,7 +167,7 @@ document.getElementById('mode-toggle').addEventListener('change', function() {
 const backgroundImages = {
     'clear': {
         day: 'assets/sun-bg.jpeg',
-        night: 'assets/istockphoto-1335422932-612x612.jpg'
+        night: 'assets/night-bg2.png'
     },
     'clouds': {
         day: 'assets/day-cloud-bg.jpg',
