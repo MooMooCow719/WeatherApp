@@ -35,8 +35,8 @@ h2{
 #search-bar {
     flex-grow: 3;
     display: flex;
-    justify-content: right;
-    margin: 0vw 5vw 0vw 20vw;
+    justify-content: left;
+    margin: 0vw 5vw 0vw 0vw;
     transform: scale(1.5);
 }
 
