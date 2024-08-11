@@ -46,6 +46,7 @@ function updateUI(data) {
     document.getElementById('local-time').textContent = localTime;
 
     updateWeatherIcon(data);
+    updateBackground(data.weather[0].main.toLowerCase(), new Date().getHours());
 }
 
 function calculateLocalTime(timezoneOffset) {
@@ -125,4 +126,6 @@ function updateBackground(condition, hours) {
     document.body.style.backgroundPosition = 'center';
 }
 
-window.onload = updateBackground;
+window.onload = function() {
+    updateBackground('clear', new Date().getHours()); 
+};
