@@ -21,7 +21,7 @@ h2{
 }
 
 .header-bar {
-    background-color: #2c2645;
+    background-color: #481e14;
     width: 100vw;
     height: 10vh;
     display: flex;
@@ -46,7 +46,7 @@ h2{
 }
 
 .content-box{
-  border: 2px solid #d4cafa;
+  border: 2px solid #0c0c0c;
   background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(5px);
   color: #e3efab;
@@ -72,7 +72,7 @@ h2{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #201747;
+    background-color: #9B3922;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -84,7 +84,7 @@ h2{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #fa9adb;
+    background-color: #f2613f;
     -webkit-transition: .4s;
     transition: .4s;
   }
