@@ -4,7 +4,7 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color:#f8f9f1;
+    color:#f0fcff;
     margin: 0;
 }
 
@@ -36,7 +36,7 @@ h2{
     flex-grow: 3;
     display: flex;
     justify-content: right;
-    margin: 0vw 5vw 0vw 0vw;
+    margin: 0vw 5vw 5vw 0vw;
     transform: scale(1.5);
 }
 
