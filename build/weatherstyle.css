@@ -37,7 +37,7 @@ h2{
     display: flex;
     justify-content: right;
     margin: 0vw 5vw 0vw 0vw;
-    transforn: scale(3);
+    transform: scale(2);
 }
 
 #gearwheel{
