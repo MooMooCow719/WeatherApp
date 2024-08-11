@@ -4,7 +4,7 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color:#42f569;
+    color:#f0fcff;
     margin: 0;
 }
 
@@ -35,8 +35,8 @@ h2{
 #search-bar {
     flex-grow: 3;
     display: flex;
-    justify-content: left;
-    margin: 0vw 5vw 0vw 0vw;
+    justify-content: right;
+    margin: 0vw 5vw 5vw 0vw;
     transform: scale(1.5);
 }
 
