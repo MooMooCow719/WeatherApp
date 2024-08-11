@@ -157,7 +157,6 @@ function updateBackground(condition, hours) {
     document.body.style.backgroundRepeat = 'no-repeat';
 }
 
-/*window.onload = function(data) {
-    //updateBackground('clear', new Date().getHours()); 
-    updateBackground('clear', calculateLocalTime(data.timezone).getHours()); 
-};*/
+window.onload = function() {
+    updateBackground('clear', new Date().getHours()); 
+};
