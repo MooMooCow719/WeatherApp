@@ -82,7 +82,10 @@ function updateWeatherIcon(data) {
 }
 
 document.getElementById('mode-toggle').addEventListener('change', function() {
-    if (this.checked) {
+    const currentMode = document.documentElement.getAttribute('mode');
+    if (currentMode === 'light') {
+        document.documentElement.removeAttribute('mode');
+    } else {
         document.documentElement.setAttribute('mode', 'light');
     }
 });
