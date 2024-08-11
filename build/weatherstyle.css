@@ -4,7 +4,7 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    color:#f0fcff;
+    color:#bccccb;
     margin: 0;
     background-size: fill;
     background-position: center;
@@ -21,7 +21,7 @@ h2{
 }
 
 .header-bar {
-    background-color: #2c2645;
+    background-color: #535C91;
     width: 100vw;
     height: 10vh;
     display: flex;
@@ -46,10 +46,10 @@ h2{
 }
 
 .content-box{
-  border: 2px solid #d4cafa;
+  border: 2px solid #9290C3;
   background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(5px);
-  color: #e3efab;
+  color: #070F2B;
 }
 
 .switch {
@@ -72,7 +72,7 @@ h2{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #201747;
+    background-color: #070F2B;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -84,7 +84,7 @@ h2{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #fa9adb;
+    background-color: #1B1A55;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -102,19 +102,19 @@ h2{
   }
   
 input:checked + #mode-slider {
-    background-color: #fdff74;
+    background-color: #fbfca9;
   }
   
 input:focus + #mode-slider {
-    box-shadow: 0 0 1px #fdff74;
+    box-shadow: 0 0 1px #fbfca9;
   }
 
   input:checked + #unit-slider {
-    background-color: #fa9adb;
+    background-color: #ffc9ee;
   }
   
 input:focus + #unit-slider {
-    box-shadow: 0 0 1px #fa9adb;
+    box-shadow: 0 0 1px #ffc9ee;
   }
   
 input:checked + .slider:before {
@@ -132,13 +132,13 @@ input:checked + .slider:before {
   }
 
 [mode="light"] .header-bar{
-    background-color:#469dec;
+    background-color:#5BBCFF;
 }
 
 [mode="light"] .content-box{
-  border: 2px solid #7f7e83;
+  border: 2px solid #FFD1E3;
   background-color: rgba(209, 213, 202, 0.218);
   backdrop-filter: blur(5px);
-  color:#f7f8e5;
+  color:#7EA1FF;
 }
 
