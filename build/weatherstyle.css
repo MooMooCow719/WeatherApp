@@ -33,9 +33,11 @@ h2{
 }
 
 #search-bar {
-    flex-grow: 2;
+    flex-grow: 3;
     display: flex;
-    justify-content: center;
+    justify-content: right;
+    margin: 0vw 5vw 0vw 0vw;
+    transforn: scale(3);
 }
 
 #gearwheel{
