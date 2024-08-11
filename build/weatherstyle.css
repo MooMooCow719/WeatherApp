@@ -132,13 +132,13 @@ input:checked + .slider:before {
   }
 
 [mode="light"] .header-bar{
-    background-color:#6482AD;
+    background-color:#5BBCFF;
 }
 
 [mode="light"] .content-box{
-  border: 2px solid #7FA1C3;
+  border: 2px solid #FFD1E3;
   background-color: rgba(209, 213, 202, 0.218);
   backdrop-filter: blur(5px);
-  color:#E2DAD6;
+  color:#7EA1FF;
 }
 
