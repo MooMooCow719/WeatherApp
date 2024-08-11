@@ -24,10 +24,10 @@ h1 {
     position: sticky;
     top: 0;
     width: 100vw;
-    height: 10vw;
+    height: 1px;
 }
 
 #gearwheel{
-    width: 1vw;
+    width: 1px;
     height: auto;
 }
