@@ -84,7 +84,7 @@ function updateUI(data) {
     }
 
     document.getElementById('city').textContent = data.name;
-    document.getElementById('country').textContent= sys.country;
+    document.getElementById('country').textContent= ", " + data.sys.country;
     const condition = data.weather[0].main.toLowerCase();
     document.getElementById('condition').textContent = condition;
 
@@ -97,8 +97,8 @@ function updateUI(data) {
         document.getElementById('wind').textContent = `${windMPH} mph`;
     }
     
-    document.getElementById('sunrise-time').textContent= sys.sunrise;
-    document.getElementById('sunset-time').textContent= sys.sunset;
+    document.getElementById('sunrise-time').textContent= data.sys.sunrise;
+    document.getElementById('sunset-time').textContent= data.sys.sunset;
 
     const windDeg = data.wind.deg;
     if (windDeg >= 337.5 || windDeg <= 22.5){
