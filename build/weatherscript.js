@@ -97,9 +97,11 @@ function updateUI(data) {
     //let sunRiseTime = calculateLocalTime(new Date(data.sys.sunrise * 1000));
     //let sunSetTime = calculateLocalTime(new Date(data.sys.sunset * 1000));
 
-    const sunRiseTime = new Date((data.sys.sunrise + data.timezone) * 1000);
-    const sunSetTime = new Date((data.sys.sunset + data.timezone) * 1000);
+    //const sunRiseTime = new Date((data.sys.sunrise + data.timezone) * 1000);
+    //const sunSetTime = new Date((data.sys.sunset + data.timezone) * 1000);
 
+    const sunRiseTime = calculateLocalTime(data.sys.sunrise + data.timezone);
+    const sunSetTime = calculateLocalTime(data.sys.sunset + data.timezone);
 
     
     //console.log(data.sys.sunrise);
@@ -147,7 +149,8 @@ function updateUI(data) {
 
 function calculateLocalTime(timezoneOffset) {
     const utcDate = new Date();
-    const localDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000 + timezoneOffset * 1000);
+    //const localDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000 + timezoneOffset * 1000);
+    const localDate = new Date(utcDate.getTime() + (timezoneOffset * 1000));
     return localDate;
 }
 
