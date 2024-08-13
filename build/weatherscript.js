@@ -105,8 +105,8 @@ function updateUI(data) {
     //console.log(data.sys.sunrise);
     //console.log(data.sys.sunset);
 
-    //console.log(sunRiseTime);
-    //console.log(sunSetTime);
+    console.log(sunRiseTime);
+    console.log(sunSetTime);
 
     const trueSunRiseTime = sunRiseTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
     const trueSunSetTime = sunSetTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
