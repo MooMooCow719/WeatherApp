@@ -242,10 +242,12 @@ function updateBackground(condition, hours) {
             : 'linear-gradient(to bottom, #5353c5, #040454)'; // Default Nighttime
     }
 
-    document.body.style.background = backgroundGradient;
-    document.body.style.backgroundSize = 'cover'; 
-    document.body.style.backgroundPosition = 'center';
-    document.body.style.backgroundRepeat = 'no-repeat';
+    const contentBody = document.getElementById('content');
+
+    contentBody.style.background = backgroundGradient;
+    contentBody.style.backgroundSize = 'cover'; 
+    contentBody.style.backgroundPosition = 'center';
+    contentBody.style.backgroundRepeat = 'no-repeat';
 }
 
 

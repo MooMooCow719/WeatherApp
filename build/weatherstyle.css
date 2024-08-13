@@ -20,7 +20,7 @@ h2{
     font-size: 2rem;
 }
 
-.cover-page {
+#cover-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -30,7 +30,7 @@ h2{
   color: #f0f5af; 
 }
 
-.cover-page h1, .cover-page p {
+#cover-page h1, #cover-page p {
   margin: 10px 0;
 }
 
@@ -151,7 +151,7 @@ input:checked + .slider:before {
     color: #fffee0;
 }
 
-[mode="light"] .cover-page {
+[mode="light"] #cover-page {
   display: flex;
   flex-direction: column;
   align-items: center;
