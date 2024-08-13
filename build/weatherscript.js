@@ -231,23 +231,26 @@ function updateBackground(condition, hours) {
 
     if (condition.includes('clear')) {
         backgroundGradient = isDay 
-            ? 'linear-gradient(135deg, #FFFA8B 0%, #87CEEB 100%)'
-            : 'linear-gradient(180deg, #000033 0%, #191970 100%)'; 
+            ? 'linear-gradient(7deg, #FFFA8B  #73CEEB)'
+            : 'linear-gradient(7deg, #000033, #191970)'; 
     } else if (condition.includes('clouds')) {
         backgroundGradient = isDay 
-            ? 'linear-gradient(90deg, #D3D3D3 0%, #A9A9A9 50%, #696969 100%)' 
-            : 'linear-gradient(180deg, #2F4F4F 0%, #000000 100%)'; 
+            ? 'linear-gradient(7deg, #D3D3D3, #A9A9A9)' 
+            : 'linear-gradient(7deg, #2F4F4F, #000000)'; 
     } else if (condition.includes('rain')) {
         backgroundGradient = isDay 
-            ? 'linear-gradient(45deg, #4682B4 0%, #2F4F4F 100%)' 
-            : 'linear-gradient(180deg, #000080 0%, #000000 100%)'; 
+            ? 'linear-gradient(7deg, #4682B4, #2F4F4F)' 
+            : 'linear-gradient(7deg, #000080, #000000)'; 
     } else {
         backgroundGradient = isDay 
-            ? 'linear-gradient(135deg, #FFFA8B 0%, #87CEEB 100%)' 
-            : 'linear-gradient(180deg, #000033 0%, #191970 100%)'; 
+            ? 'linear-gradient(7deg, #FFFA8B, #87CEEB)' 
+            : 'linear-gradient(7deg, #000033, #191970)'; 
     }
 
     document.body.style.backgroundImage = backgroundGradient;
+    document.body.style.backgroundSize = 'cover'; // Changed from 'fill' to 'cover'
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundRepeat = 'no-repeat';
 }
 
 window.onload = function() {
