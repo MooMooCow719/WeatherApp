@@ -266,20 +266,20 @@ function updateBackground(condition, hours) {
 
     if (condition.includes('clear')) {
         backgroundGradient = isDay 
-            ? 'linear-gradient(to bottom, #FFFA8B, #73CEEB)' // Daytime Clear
-            : 'linear-gradient(to bottom, #000033, #191970)'; // Nighttime Clear
+            ? 'linear-gradient(to bottom, #fff866, #73CEEB)' // Daytime Clear
+            : 'linear-gradient(to bottom, #191970, #0e0ea0)'; // Nighttime Clear
     } else if (condition.includes('clouds')) {
         backgroundGradient = isDay 
-            ? 'linear-gradient(to bottom, #D3D3D3, #A9A9A9)' // Daytime Clouds
-            : 'linear-gradient(to bottom, #2F4F4F, #000000)'; // Nighttime Clouds
+            ? 'linear-gradient(to bottom, #A9A9A9, #b9b9b9)' // Daytime Clouds
+            : 'linear-gradient(to bottom, #475470, #4b5262)'; // Nighttime Clouds
     } else if (condition.includes('rain')) {
         backgroundGradient = isDay 
             ? 'linear-gradient(to bottom, #4682B4, #2F4F4F)' // Daytime Rain
-            : 'linear-gradient(to bottom, #000080, #000000)'; // Nighttime Rain
+            : 'linear-gradient(to bottom, #000080, #55557f)'; // Nighttime Rain
     } else {
         backgroundGradient = isDay 
-            ? 'linear-gradient(to bottom, #FFFA8B, #87CEEB)' // Default Daytime
-            : 'linear-gradient(to bottom, #000033, #191970)'; // Default Nighttime
+            ? 'linear-gradient(to bottom, #fbf571, #ffa1f5)' // Default Daytime
+            : 'linear-gradient(to bottom, #5353c5, #040454)'; // Default Nighttime
     }
 
     document.body.style.background = backgroundGradient;

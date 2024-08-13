@@ -22,6 +22,7 @@ h2{
 
 .header-bar {
     background-color: #535C91;
+    color: #fffee0;
     width: 100vw;
     height: 10vh;
     display: flex;
@@ -47,9 +48,9 @@ h2{
 
 .content-box{
   border: 2px solid #9290C3;
-  background-color: rgba(145, 98, 227, 0.333);
-  color: #101c46;
-  backdrop-filter: blur(3px) saturate(50%);
+  background-color: rgba(42, 39, 48, 0.333);
+  color: #8c2aaa;
+  backdrop-filter: blur(2px) saturate(50%);
 }
 
 .switch {
@@ -84,7 +85,7 @@ h2{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #1B1A55;
+    background-color: #ffc9ee;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -133,12 +134,13 @@ input:checked + .slider:before {
 
 [mode="light"] .header-bar{
     background-color:#5BBCFF;
+    color: #fffee0;
 }
 
 [mode="light"] .content-box{
   border: 2px solid #FFD1E3;
-  background-color: rgba(209, 202, 213, 0.218);
-  color:#5a73b8;
-  backdrop-filter: blur(3px) saturate(50%);
+  background-color: rgba(135, 131, 138, 0.125);
+  color:#41aed2;
+  backdrop-filter: blur(2px) saturate(50%);
 }
 
