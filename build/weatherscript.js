@@ -94,11 +94,11 @@ function updateUI(data) {
     document.getElementById('humidity').textContent = data.main.humidity;
     document.getElementById('rainchk').textContent = data.clouds.all; 
 
-    const sunRiseTime = new Date(data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-    const sunSetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+    let sunRiseTime = calculateLocalTime(new Date(data.sys.sunrise * 1000));
+    let sunSetTime = calculateLocalTime(new Date(data.sys.sunset * 1000));
 
-    document.getElementById('sunrise-time').textContent = sunRiseTime;
-    document.getElementById('sunset-time').textContent = sunSetTime;
+    document.getElementById('sunrise-time').textContent = sunRiseTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });;
+    document.getElementById('sunset-time').textContent = sunSetTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });;
 
     const windDeg = data.wind.deg;
     if (windDeg >= 337.5 || windDeg <= 22.5){
@@ -195,7 +195,7 @@ document.getElementById('mode-toggle').addEventListener('change', function() {
     }
 });
 
-function updateBackground(condition, hours) {
+/*function updateBackground(condition, hours) {
     let backgroundImage;
     const isDay = hours >= 6 && hours < 18;
 
@@ -218,6 +218,36 @@ function updateBackground(condition, hours) {
     document.body.style.backgroundSize = 'cover'; // Changed from 'fill' to 'cover'
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = 'no-repeat';
+}*/
+
+function updateBackground(condition, hours) {
+    let backgroundGradient;
+    const isDay = hours >= 6 && hours < 18;
+
+    if (typeof condition !== 'string') {
+        console.error('Condition is not a string:', condition);
+        return;
+    }
+
+    if (condition.includes('clear')) {
+        backgroundGradient = isDay 
+            ? 'linear-gradient(135deg, #FFFA8B 0%, #87CEEB 100%)'
+            : 'linear-gradient(180deg, #000033 0%, #191970 100%)'; 
+    } else if (condition.includes('clouds')) {
+        backgroundGradient = isDay 
+            ? 'linear-gradient(90deg, #D3D3D3 0%, #A9A9A9 50%, #696969 100%)' 
+            : 'linear-gradient(180deg, #2F4F4F 0%, #000000 100%)'; 
+    } else if (condition.includes('rain')) {
+        backgroundGradient = isDay 
+            ? 'linear-gradient(45deg, #4682B4 0%, #2F4F4F 100%)' 
+            : 'linear-gradient(180deg, #000080 0%, #000000 100%)'; 
+    } else {
+        backgroundGradient = isDay 
+            ? 'linear-gradient(135deg, #FFFA8B 0%, #87CEEB 100%)' 
+            : 'linear-gradient(180deg, #000033 0%, #191970 100%)'; 
+    }
+
+    document.body.style.backgroundImage = backgroundGradient;
 }
 
 window.onload = function() {
