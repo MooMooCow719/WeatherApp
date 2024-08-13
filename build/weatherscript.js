@@ -231,24 +231,25 @@ function updateBackground(condition, hours) {
 
     if (condition.includes('clear')) {
         backgroundGradient = isDay 
-            ? 'linear-gradient(7deg, #FFFA8B  #73CEEB)'
-            : 'linear-gradient(7deg, #000033, #191970)'; 
+            ? 'linear-gradient(#FFFA8B  #73CEEB)'
+            : 'linear-gradient(#000033, #191970)'; 
     } else if (condition.includes('clouds')) {
         backgroundGradient = isDay 
-            ? 'linear-gradient(7deg, #D3D3D3, #A9A9A9)' 
-            : 'linear-gradient(7deg, #2F4F4F, #000000)'; 
+            ? 'linear-gradient(#D3D3D3, #A9A9A9)' 
+            : 'linear-gradient(#2F4F4F, #000000)'; 
     } else if (condition.includes('rain')) {
         backgroundGradient = isDay 
-            ? 'linear-gradient(7deg, #4682B4, #2F4F4F)' 
-            : 'linear-gradient(7deg, #000080, #000000)'; 
+            ? 'linear-gradient(#4682B4, #2F4F4F)' 
+            : 'linear-gradient(#000080, #000000)'; 
     } else {
         backgroundGradient = isDay 
-            ? 'linear-gradient(7deg, #FFFA8B, #87CEEB)' 
-            : 'linear-gradient(7deg, #000033, #191970)'; 
+            ? 'linear-gradient(#FFFA8B, #87CEEB)' 
+            : 'linear-gradient(#000033, #191970)'; 
     }
 
     document.body.style.backgroundImage = backgroundGradient;
-    document.body.style.backgroundSize = 'cover'; // Changed from 'fill' to 'cover'
+    document.body.style.backgroundSize = 'fill'; // Changed from 'fill' to 'cover'
+    //changed back to fill from cover for testing
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = 'no-repeat';
 }
