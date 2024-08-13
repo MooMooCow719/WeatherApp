@@ -1,11 +1,11 @@
 let isMetric = true;
 
 document.getElementById('units-toggle').addEventListener('change', function() {
-    isCelsius = !isCelsius;
+    isMetric = !isMetric;
     const tempElement = document.getElementById('temp');
     const currentTemp = parseFloat(tempElement.dataset.temp);
 
-    if (isCelsius) {
+    if (isMetric) {
         tempElement.textContent = `${Math.round(currentTemp)}°C`;
     } else {
         const tempFahrenheit = (currentTemp * 9/5) + 32;
@@ -93,12 +93,15 @@ function updateUI(data) {
     if (isMetric){
         document.getElementById('wind').textContent = `${data.wind.speed} m/s`;
     } else {
-        const windMPH = (data.wind.speed) * 2.23694;
+        const windMPH = (data.wind.speed * 2.23694).toFixed(2);
         document.getElementById('wind').textContent = `${windMPH} mph`;
     }
-    
-    document.getElementById('sunrise-time').textContent= data.sys.sunrise;
-    document.getElementById('sunset-time').textContent= data.sys.sunset;
+
+    const sunRiseTime = new Date(data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+    const sunSetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+
+    document.getElementById('sunrise-time').textContent= sunRiseTime;
+    document.getElementById('sunset-time').textContent= sunSetTime;
 
     const windDeg = data.wind.deg;
     if (windDeg >= 337.5 || windDeg <= 22.5){
