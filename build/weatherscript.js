@@ -11,6 +11,12 @@ document.getElementById('units-toggle').addEventListener('change', function() {
         const tempFahrenheit = (currentTemp * 9/5) + 32;
         tempElement.textContent = `${Math.round(tempFahrenheit)}°F`;
     }
+    if (isMetric){
+        document.getElementById('wind').textContent = `${data.wind.speed} m/s`;
+    } else {
+        const windMPH = (data.wind.speed * 2.23694).toFixed(2);
+        document.getElementById('wind').textContent = `${windMPH} mph`;
+    }
 });
 
 document.getElementById('search-bar').addEventListener('submit', function(event) {
