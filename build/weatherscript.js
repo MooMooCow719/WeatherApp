@@ -96,9 +96,18 @@ function updateUI(data) {
 
     let sunRiseTime = calculateLocalTime(new Date(data.sys.sunrise * 1000));
     let sunSetTime = calculateLocalTime(new Date(data.sys.sunset * 1000));
+    
+    console.log(data.sys.sunrise);
+    console.log(data.sys.sunset);
 
-    document.getElementById('sunrise-time').textContent = sunRiseTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });;
-    document.getElementById('sunset-time').textContent = sunSetTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });;
+    const trueSunRiseTime = sunRiseTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+    const trueSunSetTime = sunSetTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
+
+    console.log(trueSunRiseTime);
+    console.log(trueSunSetTime);
+
+    document.getElementById('sunrise-time').textContent = trueSunRiseTime;
+    document.getElementById('sunset-time').textContent = trueSunSetTime;
 
     const windDeg = data.wind.deg;
     if (windDeg >= 337.5 || windDeg <= 22.5){
