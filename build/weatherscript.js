@@ -3,20 +3,28 @@ let isMetric = true;
 document.getElementById('units-toggle').addEventListener('change', function() {
     isMetric = !isMetric;
     const tempElement = document.getElementById('temp');
-    const currentTemp = parseFloat(tempElement.dataset.temp);
-    const windElement = document.getElementById('wind');
-    const currentWindSpeed = parseFloat(windElement.dataset.speed);
+    if (tempElement) {
+        const currentTemp = parseFloat(tempElement.dataset.temp);
+        const windElement = document.getElementById('wind');
+        if (windElement) {
+            const currentWindSpeed = parseFloat(windElement.dataset.speed);
 
-    // Update temperature display based on the unit system
-    if (isMetric) {
-        tempElement.textContent = `${Math.round(currentTemp)}°C`;
-        windElement.textContent = `${currentWindSpeed.toFixed(2)} m/s`;
+            // Update temperature display based on the unit system
+            if (isMetric) {
+                tempElement.textContent = `${Math.round(currentTemp)}°C`;
+                windElement.textContent = `${currentWindSpeed.toFixed(2)} m/s`;
+            } else {
+                const tempFahrenheit = (currentTemp * 9/5) + 32;
+                tempElement.textContent = `${Math.round(tempFahrenheit)}°F`;
+
+                const windMPH = (currentWindSpeed * 2.23694).toFixed(2);
+                windElement.textContent = `${windMPH} mph`;
+            }
+        } else {
+            console.error("'wind' element not found in the DOM.");
+        }
     } else {
-        const tempFahrenheit = (currentTemp * 9/5) + 32;
-        tempElement.textContent = `${Math.round(tempFahrenheit)}°F`;
-
-        const windMPH = (currentWindSpeed * 2.23694).toFixed(2);
-        windElement.textContent = `${windMPH} mph`;
+        console.error("'temp' element not found in the DOM.");
     }
 });
 
@@ -42,29 +50,40 @@ async function getWeather(city) {
         const data = await response.json();
         updateUI(data);
     } catch (error) {
-        console.error('Error fetching weather data:', error);
-        alert('Please check the city name and try again.');
+        if (error.name === 'TypeError') {
+            console.error('Network error:', error);
+            alert('Network error. Please check your connection and try again.');
+        } else {
+            console.error('Error fetching weather data:', error);
+            alert('Please check the city name and try again.');
+        }
     }
 }
 
-let windDir;
-
 function updateUI(data) {
+    let windDir;
+
     const tempCelsius = Math.round(data.main.temp);
-    document.getElementById('temp').dataset.temp = tempCelsius;
+    const tempElement = document.getElementById('temp');
+    if (tempElement) {
+        tempElement.dataset.temp = tempCelsius;
+    }
 
     const windSpeedMetric = data.wind.speed;
-    document.getElementById('wind').dataset.speed = windSpeedMetric;
+    const windElement = document.getElementById('wind');
+    if (windElement) {
+        windElement.dataset.speed = windSpeedMetric;
+    }
 
     if (isMetric) {
-        document.getElementById('temp').textContent = `${tempCelsius}°C`;
-        document.getElementById('wind').textContent = `${windSpeedMetric.toFixed(2)} m/s`;
+        if (tempElement) tempElement.textContent = `${tempCelsius}°C`;
+        if (windElement) windElement.textContent = `${windSpeedMetric.toFixed(2)} m/s`;
     } else {
         const tempFahrenheit = (tempCelsius * 9/5) + 32;
-        document.getElementById('temp').textContent = `${Math.round(tempFahrenheit)}°F`;
+        if (tempElement) tempElement.textContent = `${Math.round(tempFahrenheit)}°F`;
 
         const windMPH = (windSpeedMetric * 2.23694).toFixed(2);
-        document.getElementById('wind').textContent = `${windMPH} mph`;
+        if (windElement) windElement.textContent = `${windMPH} mph`;
     }
 
     document.getElementById('city').textContent = data.name;
@@ -109,7 +128,6 @@ function updateUI(data) {
     updateBackground(condition, localTime.getHours()); 
 }
 
-
 function calculateLocalTime(timezoneOffset) {
     const utcDate = new Date();
     const localDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000 + timezoneOffset * 1000);
@@ -135,7 +153,7 @@ function updateWeatherIcon(data) {
             icon = 'sun.png';
         } else if (condition.includes('clouds')) {
             icon = 'day-cloud.png';
-        } else if (condition includes('rain')) {
+        } else if (condition.includes('rain')) {
             icon = 'day-rain.png';
         }
     }
@@ -177,21 +195,6 @@ document.getElementById('mode-toggle').addEventListener('change', function() {
     }
 });
 
-const backgroundImages = {
-    'clear': {
-        day: 'assets/sun-bg.jpeg',
-        night: 'assets/night-bg2.png'
-    },
-    'clouds': {
-        day: 'assets/day-cloud-bg.jpg',
-        night: 'assets/night-cloud-bg.jpeg'
-    },
-    'rain': {
-        day: 'assets/day-rain-bg.jpg',
-        night: 'assets/night-rain-bg.jpeg'
-    },
-};
-
 function updateBackground(condition, hours) {
     let backgroundImage;
     const isDay = hours >= 6 && hours < 18;
@@ -212,7 +215,7 @@ function updateBackground(condition, hours) {
     }
 
     document.body.style.backgroundImage = backgroundImage;
-    document.body.style.backgroundSize = 'fill';
+    document.body.style.backgroundSize = 'cover'; // Changed from 'fill' to 'cover'
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = 'no-repeat';
 }
