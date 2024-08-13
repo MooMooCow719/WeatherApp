@@ -97,8 +97,8 @@ function updateUI(data) {
     //let sunRiseTime = calculateLocalTime(new Date(data.sys.sunrise * 1000));
     //let sunSetTime = calculateLocalTime(new Date(data.sys.sunset * 1000));
 
-    const sunRiseTime = new Date(data.sys.sunrise + data.sys.sunrise.getTimezoneOffset() * 60000 + data.timezone * 1000);
-    const sunSetTime = new Date(data.sys.sunset + data.sys.sunset.getTimezoneOffset() * 60000 + data.timezone * 1000);
+    const sunRiseTime = new Date((data.sys.sunrise + data.timezone) * 1000);
+    const sunSetTime = new Date((data.sys.sunset + data.timezone) * 1000);
 
 
     
