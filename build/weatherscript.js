@@ -149,17 +149,19 @@ function updateUI(data) {
 }
 
 function calculateLocalTime(inputDate, timezoneOffset) {
+    const inputDateVar = inputDate;
     //const utcDate = new Date();
     //const localDate = new Date(utcDate.getTime() + utcDate.getTimezoneOffset() * 60000 + timezoneOffset * 1000);
     //const localDate = new Date(utcDate.getTime() + (timezoneOffset * 1000));
-    const localDate = new Date(inputDate.getTime() + inputDate.getTimezoneOffset()*60000 + timezoneOffset * 1000);
+    const localDate = new Date(inputDateVar.getTime() + inputDateVar.getTimezoneOffset()*60000 + timezoneOffset * 1000);
     return localDate;
 }
 
 function updateWeatherIcon(data) {
     const weatherIcon = document.getElementById('weather-icon');
     const condition = data.weather[0].main.toLowerCase();
-    const hours = calculateLocalTime(data.timezone).getHours();
+    const weatherDate = new Date();
+    const hours = calculateLocalTime(weatherDate, data.timezone).getHours();
 
     let icon;
     if (hours >= 18 || hours < 6) {
