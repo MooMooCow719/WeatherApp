@@ -50,7 +50,7 @@ h2{
   border: 2px solid #9290C3;
   background-color: rgba(41, 40, 44, 0.674);
   color: #a42dc9;
-  backdrop-filter: blur(2px) saturate(75%);
+  backdrop-filter: blur(2px) saturate(50%);
 }
 
 .switch {
@@ -140,7 +140,7 @@ input:checked + .slider:before {
 [mode="light"] .content-box{
   border: 2px solid #FFD1E3;
   background-color: rgba(135, 131, 138, 0.675);
-  color:#41aed2;
-  backdrop-filter: blur(2px) saturate(75%);
+  color:#43b8e0;
+  backdrop-filter: blur(2px) saturate(50%);
 }
 
