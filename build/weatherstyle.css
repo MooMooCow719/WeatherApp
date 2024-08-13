@@ -49,6 +49,7 @@ h2{
   border: 2px solid #9290C3;
   background-color: rgba(0, 0, 0, 0);
   color: #070F2B;
+  backdrop-filter: blur(2px) saturate(50%);
 }
 
 .switch {
@@ -138,5 +139,6 @@ input:checked + .slider:before {
   border: 2px solid #FFD1E3;
   background-color: rgba(209, 213, 202, 0.218);
   color:#5a73b8;
+  backdrop-filter: blur(2px) saturate(50%);
 }
 
