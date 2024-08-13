@@ -4,29 +4,29 @@ document.getElementById('units-toggle').addEventListener('change', function() {
     isMetric = !isMetric;
     const tempElement = document.getElementById('temp');
     const currentTemp = parseFloat(tempElement.dataset.temp);
+    const windElement = document.getElementById('wind');
+    const currentWindSpeed = parseFloat(windElement.dataset.speed);
 
+    // Update temperature display based on the unit system
     if (isMetric) {
         tempElement.textContent = `${Math.round(currentTemp)}°C`;
+        windElement.textContent = `${currentWindSpeed.toFixed(2)} m/s`;
     } else {
         const tempFahrenheit = (currentTemp * 9/5) + 32;
         tempElement.textContent = `${Math.round(tempFahrenheit)}°F`;
-    }
-    if (isMetric){
-        document.getElementById('wind').textContent = `${data.wind.speed} m/s`;
-    } else {
-        const windMPH = (data.wind.speed * 2.23694).toFixed(2);
-        document.getElementById('wind').textContent = `${windMPH} mph`;
+
+        const windMPH = (currentWindSpeed * 2.23694).toFixed(2);
+        windElement.textContent = `${windMPH} mph`;
     }
 });
 
 document.getElementById('search-bar').addEventListener('submit', function(event) {
     event.preventDefault(); 
-    //console.log('Form submitted');
     const cityName = document.getElementById('search-input').value.trim();
     if (cityName) {
         getWeather(cityName); 
     } else {
-        alert('B-baka! You have to enter something in the search field!');
+        alert('Please enter a city name.');
     }
 });
 
@@ -43,38 +43,9 @@ async function getWeather(city) {
         updateUI(data);
     } catch (error) {
         console.error('Error fetching weather data:', error);
-        alert('Uhmm...gomenasai! P-please check that your city exists and retry...');
+        alert('Please check the city name and try again.');
     }
 }
-
-/*function updateUI(data) {
-    document.getElementById('temp').textContent = `${Math.round(data.main.temp)}°C`;
-
-    document.getElementById('city').textContent = data.name;
-    const condition = data.weather[0].main.toLowerCase();
-    //document.getElementById('condition').textContent = data.weather[0].description;
-    document.getElementById('condition').textContent = condition;
-
-    document.getElementById('humidity').textContent = data.main.humidity;
-
-    document.getElementById('rainchk').textContent = data.clouds.all; 
-
-    document.getElementById('wind').textContent = `${data.wind.speed} m/s`;
-
-    // pray to god this one works
-    document.getElementById('vis').textContent = data.visibility; 
-
-    const localTime = calculateLocalTime(data.timezone);
-    document.getElementById('local-time').textContent = localTime;
-
-    const cityHours = new Date(localTime).getHours();
-    updateBackground(condition, cityHours);
-    updateWeatherIcon(data);
-
-    //updateWeatherIcon(data);
-    //updateBackground(data.weather[0].main.toLowerCase(), new Date().getHours());
-    //updateBackground(condition, new Date().getHours());
-}*/
 
 let windDir;
 
@@ -82,32 +53,33 @@ function updateUI(data) {
     const tempCelsius = Math.round(data.main.temp);
     document.getElementById('temp').dataset.temp = tempCelsius;
 
+    const windSpeedMetric = data.wind.speed;
+    document.getElementById('wind').dataset.speed = windSpeedMetric;
+
     if (isMetric) {
         document.getElementById('temp').textContent = `${tempCelsius}°C`;
+        document.getElementById('wind').textContent = `${windSpeedMetric.toFixed(2)} m/s`;
     } else {
         const tempFahrenheit = (tempCelsius * 9/5) + 32;
         document.getElementById('temp').textContent = `${Math.round(tempFahrenheit)}°F`;
+
+        const windMPH = (windSpeedMetric * 2.23694).toFixed(2);
+        document.getElementById('wind').textContent = `${windMPH} mph`;
     }
 
     document.getElementById('city').textContent = data.name;
-    document.getElementById('country').textContent= ", " + data.sys.country;
+    document.getElementById('country').textContent = ", " + data.sys.country;
     const condition = data.weather[0].main.toLowerCase();
     document.getElementById('condition').textContent = condition;
 
     document.getElementById('humidity').textContent = data.main.humidity;
     document.getElementById('rainchk').textContent = data.clouds.all; 
-    if (isMetric){
-        document.getElementById('wind').textContent = `${data.wind.speed} m/s`;
-    } else {
-        const windMPH = (data.wind.speed * 2.23694).toFixed(2);
-        document.getElementById('wind').textContent = `${windMPH} mph`;
-    }
 
     const sunRiseTime = new Date(data.sys.sunrise * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
     const sunSetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
 
-    document.getElementById('sunrise-time').textContent= sunRiseTime;
-    document.getElementById('sunset-time').textContent= sunSetTime;
+    document.getElementById('sunrise-time').textContent = sunRiseTime;
+    document.getElementById('sunset-time').textContent = sunSetTime;
 
     const windDeg = data.wind.deg;
     if (windDeg >= 337.5 || windDeg <= 22.5){
@@ -163,7 +135,7 @@ function updateWeatherIcon(data) {
             icon = 'sun.png';
         } else if (condition.includes('clouds')) {
             icon = 'day-cloud.png';
-        } else if (condition.includes('rain')) {
+        } else if (condition includes('rain')) {
             icon = 'day-rain.png';
         }
     }
