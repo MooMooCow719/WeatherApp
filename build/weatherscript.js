@@ -220,7 +220,7 @@ document.getElementById('mode-toggle').addEventListener('change', function() {
     document.body.style.backgroundRepeat = 'no-repeat';
 }*/
 
-function updateBackground(condition, hours) {
+/*function updateBackground(condition, hours) {
     let backgroundGradient;
     const isDay = hours >= 6 && hours < 18;
 
@@ -252,7 +252,42 @@ function updateBackground(condition, hours) {
     //changed back to fill from cover for testing
     document.body.style.backgroundPosition = 'center';
     document.body.style.backgroundRepeat = 'no-repeat';
+}*/
+
+//praytoRNGesus
+function updateBackground(condition, hours) {
+    let backgroundGradient;
+    const isDay = hours >= 6 && hours < 18;
+
+    if (typeof condition !== 'string') {
+        console.error('Condition is not a string:', condition);
+        return;
+    }
+
+    if (condition.includes('clear')) {
+        backgroundGradient = isDay 
+            ? 'linear-gradient(to bottom, #FFFA8B, #73CEEB)' // Daytime Clear
+            : 'linear-gradient(to bottom, #000033, #191970)'; // Nighttime Clear
+    } else if (condition.includes('clouds')) {
+        backgroundGradient = isDay 
+            ? 'linear-gradient(to bottom, #D3D3D3, #A9A9A9)' // Daytime Clouds
+            : 'linear-gradient(to bottom, #2F4F4F, #000000)'; // Nighttime Clouds
+    } else if (condition.includes('rain')) {
+        backgroundGradient = isDay 
+            ? 'linear-gradient(to bottom, #4682B4, #2F4F4F)' // Daytime Rain
+            : 'linear-gradient(to bottom, #000080, #000000)'; // Nighttime Rain
+    } else {
+        backgroundGradient = isDay 
+            ? 'linear-gradient(to bottom, #FFFA8B, #87CEEB)' // Default Daytime
+            : 'linear-gradient(to bottom, #000033, #191970)'; // Default Nighttime
+    }
+
+    document.body.style.background = backgroundGradient;
+    document.body.style.backgroundSize = 'cover'; 
+    document.body.style.backgroundPosition = 'center';
+    document.body.style.backgroundRepeat = 'no-repeat';
 }
+
 
 window.onload = function() {
     updateBackground('clear', new Date().getHours()); 
