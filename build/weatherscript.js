@@ -94,14 +94,19 @@ function updateUI(data) {
     document.getElementById('humidity').textContent = data.main.humidity;
     document.getElementById('rainchk').textContent = data.clouds.all; 
 
-    let sunRiseTime = calculateLocalTime(new Date(data.sys.sunrise * 1000));
-    let sunSetTime = calculateLocalTime(new Date(data.sys.sunset * 1000));
-    
-    console.log(data.sys.sunrise);
-    console.log(data.sys.sunset);
+    //let sunRiseTime = calculateLocalTime(new Date(data.sys.sunrise * 1000));
+    //let sunSetTime = calculateLocalTime(new Date(data.sys.sunset * 1000));
 
-    console.log(sunRiseTime);
-    console.log(sunSetTime);
+    const sunRiseTime = new Date(data.sys.sunrise + data.sys.sunrise.getTimezoneOffset() * 60000 + data.timezone * 1000);
+    const sunSetTime = new Date(data.sys.sunset + data.sys.sunset.getTimezoneOffset() * 60000 + data.timezone * 1000);
+
+
+    
+    //console.log(data.sys.sunrise);
+    //console.log(data.sys.sunset);
+
+    //console.log(sunRiseTime);
+    //console.log(sunSetTime);
 
     const trueSunRiseTime = sunRiseTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
     const trueSunSetTime = sunSetTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
