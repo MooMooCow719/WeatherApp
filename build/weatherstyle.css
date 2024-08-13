@@ -20,6 +20,20 @@ h2{
     font-size: 2rem;
 }
 
+.cover-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #0b0c28; 
+  color: #f0f5af; 
+}
+
+.cover-page h1, .cover-page p {
+  margin: 10px 0;
+}
+
 .header-bar {
     background-color: #535C91;
     color: #fffee0;
@@ -135,6 +149,16 @@ input:checked + .slider:before {
 [mode="light"] .header-bar{
     background-color:#5BBCFF;
     color: #fffee0;
+}
+
+[mode="light"] .cover-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #2b8dd8; 
+  color: #f7f5f5; 
 }
 
 [mode="light"] .content-box{

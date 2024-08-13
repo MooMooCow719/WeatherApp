@@ -32,10 +32,18 @@ document.getElementById('search-bar').addEventListener('submit', function(event)
     event.preventDefault(); 
     const cityName = document.getElementById('search-input').value.trim();
     if (cityName) {
+        document.getElementById('cover-page').style.display = 'none';
+        //document.querySelector('.header-bar').style.display = 'block';
+        document.querySelector('.content').style.display = 'block';
         getWeather(cityName); 
     } else {
         alert('Please enter a city name.');
     }
+});
+
+document.getElementById('weather-title').addEventListener('click', function() {
+    document.getElementById('cover-page').style.display = 'block';
+    document.querySelector('.content').style.display = 'none';
 });
 
 async function getWeather(city) {
