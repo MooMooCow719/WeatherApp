@@ -1,5 +1,6 @@
 html {
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -28,6 +29,8 @@ h2{
   height: 100vh;
   background-color: #0b0c28; 
   color: #f0f5af; 
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 #cover-page h1, #cover-page p {
