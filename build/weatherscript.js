@@ -221,11 +221,11 @@ function updateBackground(condition, hours) {
     if (condition.includes('clear')) {
         backgroundGradient = isDay 
             ? 'linear-gradient(to bottom, #fff866, #73CEEB)' // Daytime Clear
-            : 'linear-gradient(to bottom, #191970, #0e0ea0)'; // Nighttime Clear
+            : 'linear-gradient(to bottom, #4d1c7a, #0e0ea0)'; // Nighttime Clear
     } else if (condition.includes('clouds')) {
         backgroundGradient = isDay 
-            ? 'linear-gradient(to bottom, #A9A9A9, #b9b9b9)' // Daytime Clouds
-            : 'linear-gradient(to bottom, #475470, #4b5262)'; // Nighttime Clouds
+            ? 'linear-gradient(to bottom, #A9A9A9, #3c4d48)' // Daytime Clouds
+            : 'linear-gradient(to bottom, #475470, #3e3745)'; // Nighttime Clouds
     } else if (condition.includes('rain')) {
         backgroundGradient = isDay 
             ? 'linear-gradient(to bottom, #4682B4, #2F4F4F)' // Daytime Rain
