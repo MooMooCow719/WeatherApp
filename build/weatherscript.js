@@ -34,7 +34,7 @@ document.getElementById('search-bar').addEventListener('submit', function(event)
     if (cityName) {
         document.getElementById('cover-page').style.display = 'none';
         //document.querySelector('.header-bar').style.display = 'block';
-        document.querySelector('.content').style.display = 'flex';
+        document.querySelector('.content').style.display = 'block';
         getWeather(cityName); 
     } else {
         alert('Please enter a city name.');
@@ -105,14 +105,8 @@ function updateUI(data) {
     const sunRiseTime = calculateLocalTime(new Date(data.sys.sunrise * 1000), data.timezone);
     const sunSetTime = calculateLocalTime(new Date(data.sys.sunset * 1000), data.timezone);
 
-    console.log(sunRiseTime);
-    console.log(sunSetTime);
-
     const trueSunRiseTime = sunRiseTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
     const trueSunSetTime = sunSetTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true });
-
-    console.log(trueSunRiseTime);
-    console.log(trueSunSetTime);
 
     document.getElementById('sunrise-time').textContent = trueSunRiseTime;
     document.getElementById('sunset-time').textContent = trueSunSetTime;
@@ -242,7 +236,7 @@ function updateBackground(condition, hours) {
             : 'linear-gradient(to bottom, #5353c5, #040454)'; // Default Nighttime
     }
 
-    const contentBody = document.getElementsByClassName('content');
+    const contentBody = document.getElementById('content');
 
     contentBody.style.background = backgroundGradient;
     contentBody.style.backgroundSize = 'cover'; 
