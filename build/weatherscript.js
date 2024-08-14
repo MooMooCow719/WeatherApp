@@ -34,7 +34,7 @@ document.getElementById('search-bar').addEventListener('submit', function(event)
     if (cityName) {
         document.getElementById('cover-page').style.display = 'none';
         //document.querySelector('.header-bar').style.display = 'block';
-        document.querySelector('.content').style.display = 'block';
+        document.querySelector('.content').style.display = 'flex';
         getWeather(cityName); 
     } else {
         alert('Please enter a city name.');
@@ -42,7 +42,7 @@ document.getElementById('search-bar').addEventListener('submit', function(event)
 });
 
 document.getElementById('weather-title').addEventListener('click', function() {
-    document.getElementById('cover-page').style.display = 'block';
+    document.getElementById('cover-page').style.display = 'flex';
     document.querySelector('.content').style.display = 'none';
 });
 
@@ -242,7 +242,7 @@ function updateBackground(condition, hours) {
             : 'linear-gradient(to bottom, #5353c5, #040454)'; // Default Nighttime
     }
 
-    const contentBody = document.getElementById('content');
+    const contentBody = document.getElementsByClassName('content');
 
     contentBody.style.background = backgroundGradient;
     contentBody.style.backgroundSize = 'cover'; 
